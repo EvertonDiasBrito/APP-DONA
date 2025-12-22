@@ -1,0 +1,6 @@
+*.log
+node_modules/
+!important.log
+.DS_Store
+.vscode/
+.exe
