@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 /*pegando os dados do formulário*/
 $cliente = $_POST['cliente'];
@@ -23,7 +21,7 @@ $stmt->bind_param("ssssss", $cliente, $endereco, $telefone, $observacoes, $data_
 
 /*verificando se os dados foram inseridos com sucesso*/
 if($stmt->execute()){
-    echo "Dados inseridos com sucesso!";
+     header("Location: index.html");
 } else {
     echo "Erro ao inserir dados: " . $stmt->error;
 }
