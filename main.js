@@ -9,7 +9,7 @@ async function createWindow(){
         
     });
     
-    await mainWindow.loadFile("src/pages/editor/index.html");
+    await mainWindow.loadURL("http://localhost/appdona/src/pages/editor/index.html");
 
 }
 
