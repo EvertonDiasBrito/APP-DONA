@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 
 /*pegando os dados do formulário*/
 $cliente = $_POST['cliente'];
@@ -8,13 +9,7 @@ $observacoes = $_POST['observacoes'];
 $data_atual = date("d/m/Y");
 $hora_atual = date("H:i:s");
 
-/*conectando ao banco de dados*/
-$conn = new mysqli("localhost", "root", "", "lista_clientes");
 
-/*verificando a conexão*/
-if($conn->connect_error){
-    die("Conexão falhou: " . $conn->connect_error);
-}
 /*inserindo os dados na tabela*/
 $stmt = $conn->prepare("INSERT INTO clientes (cliente, endereco, telefone, observacoes, data, hora) VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssss", $cliente, $endereco, $telefone, $observacoes, $data_atual, $hora_atual);
